@@ -24,10 +24,12 @@ public class GildedRoseTest {
 
     private Random random = new Random(FIXED_SEED);
     private GildedRose gildedRose;
+    private GildedRoseRefactored gildedRoseRefactored;
 
     @Before
     public void initialise() {
         gildedRose = new GildedRose();
+        gildedRoseRefactored = new GildedRoseRefactored();
     }
 
     @Test
@@ -39,8 +41,17 @@ public class GildedRoseTest {
         Approvals.verify(getStringRepresentationFor(items));
     }
 
+    @Test
+    public void should_still_work() throws Exception {
+        List<Item> items = generateRandomItems(NUMBER_OF_RANDOM_ITEMS);
+
+        gildedRoseRefactored.updateQuality(items);
+
+        Approvals.verify(getStringRepresentationFor(items));
+    }
+
     private List<Item> generateRandomItems(int totalNumberOfRandomItems) {
-        List<Item> items = new ArrayList<Item>();
+        List<Item> items = new ArrayList<>();
         for (int cnt = 0; cnt < totalNumberOfRandomItems; cnt++) {
             items.add(new Item(itemName(), sellIn(), quality()));
         }
@@ -48,7 +59,7 @@ public class GildedRoseTest {
     }
 
     private String itemName() {
-        return itemNames[0 + random.nextInt(itemNames.length)];
+        return itemNames[random.nextInt(itemNames.length)];
     }
 
     private int sellIn() {
