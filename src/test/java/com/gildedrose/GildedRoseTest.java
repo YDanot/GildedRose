@@ -23,22 +23,11 @@ public class GildedRoseTest {
             "Conjured Mana Cake"};
 
     private Random random = new Random(FIXED_SEED);
-    private GildedRose gildedRose;
     private GildedRoseRefactored gildedRoseRefactored;
 
     @Before
     public void initialise() {
-        gildedRose = new GildedRose();
         gildedRoseRefactored = new GildedRoseRefactored();
-    }
-
-    @Test
-    public void should_generate_update_quality_output() throws Exception {
-        List<Item> items = generateRandomItems(NUMBER_OF_RANDOM_ITEMS);
-
-        gildedRose.updateQuality(items);
-
-        Approvals.verify(getStringRepresentationFor(items));
     }
 
     @Test
