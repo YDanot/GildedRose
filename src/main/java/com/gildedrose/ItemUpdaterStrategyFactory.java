@@ -12,11 +12,8 @@ public class ItemUpdaterStrategyFactory {
         } else if (!item.name.equals("Sulfuras, Hand of Ragnaros")) {
             return new DefaultItemUpdater();
         }
-        return new ItemUpdater() {
-            @Override
-            public void update(Item item) {
+        return item1 -> {
 
-            }
         };
     }
 }

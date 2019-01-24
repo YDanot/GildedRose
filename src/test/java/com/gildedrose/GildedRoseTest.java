@@ -51,7 +51,7 @@ public class GildedRoseTest {
     }
 
     private List<Item> generateRandomItems(int totalNumberOfRandomItems) {
-        List<Item> items = new ArrayList<>();
+        List<Item> items = new ArrayList<Item>();
         for (int cnt = 0; cnt < totalNumberOfRandomItems; cnt++) {
             items.add(new Item(itemName(), sellIn(), quality()));
         }
